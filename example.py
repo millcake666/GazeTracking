@@ -19,14 +19,18 @@ while True:
     frame = gaze.annotated_frame()
     text = ""
 
-    if gaze.is_blinking():
+    pos = gaze.horizontal_ratio()
+    print(pos)
+
+    if pos is None:
         text = "Blinking"
-    elif gaze.is_right():
+    elif pos <= 0.55:
         text = "Looking right"
-    elif gaze.is_left():
+    elif pos >= 0.65:
         text = "Looking left"
-    elif gaze.is_center():
+    else:
         text = "Looking center"
+
 
     cv2.putText(frame, text, (90, 60), cv2.FONT_HERSHEY_DUPLEX, 1.6, (147, 58, 31), 2)
 
