@@ -31,7 +31,6 @@ while True:
     else:
         text = "Looking center"
 
-
     cv2.putText(frame, text, (90, 60), cv2.FONT_HERSHEY_DUPLEX, 1.6, (147, 58, 31), 2)
 
     left_pupil = gaze.pupil_left_coords()
@@ -39,7 +38,9 @@ while True:
     cv2.putText(frame, "Left pupil:  " + str(left_pupil), (90, 130), cv2.FONT_HERSHEY_DUPLEX, 0.9, (147, 58, 31), 1)
     cv2.putText(frame, "Right pupil: " + str(right_pupil), (90, 165), cv2.FONT_HERSHEY_DUPLEX, 0.9, (147, 58, 31), 1)
 
-    cv2.imshow("Demo", frame)
+    cv2.namedWindow("programs", cv2.WINDOW_NORMAL)
+    cv2.resizeWindow("programs", 1680, 1000)
+    cv2.imshow("programs", frame)
 
     if cv2.waitKey(1) == 27:
         break
