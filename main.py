@@ -8,7 +8,7 @@ import numpy as np
 gaze = GazeTracking()
 webcam = cv2.VideoCapture(0)
 
-time_to_show = 1  # sec
+time_to_show = 10  # sec
 
 dir_path = r'logo_new_scaled'
 filenames = list(walk(dir_path))[0][2]
