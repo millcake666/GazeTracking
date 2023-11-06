@@ -9,6 +9,7 @@ gaze = GazeTracking()
 webcam = cv2.VideoCapture(0)
 
 time_to_show = 10  # sec
+pos_calib = 0.6
 
 dir_path = r'logo_new_scaled'
 filenames = list(walk(dir_path))[0][2]
@@ -64,11 +65,11 @@ for round in range(5):
             if pos is None:
                 # "Blinking"
                 pass
-            elif pos <= 0.6:
+            elif pos <= pos_calib:
                 # "Looking right"
                 logos_time[r2] += perf_counter() - time_old
                 time_old = perf_counter()
-            elif pos > 0.6:
+            elif pos > pos_calib:
                 # "Looking left"
                 logos_time[r1] += perf_counter() - time_old
                 time_old = perf_counter()
